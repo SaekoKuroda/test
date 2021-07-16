@@ -85,7 +85,7 @@
 // };
 // console.log(func2("今日はくもってるなあ"));
 
-// 処理が１行で終わる場合は、波カッコやreturnを省略可
+// 処理が１行で終わる場合は、波カッコ(ブラケット)やreturnを省略可
 // const func3 = (str) => str;
 // console.log(func3("今日は雨かあ"));
 
@@ -205,3 +205,53 @@
 // array12[0] = 100;
 // console.log(array12);
 // console.log(array4);
+
+/**
+ * mapやfilterを使った配列の処理(for文不要！)
+ */
+// const stationArray1 = ["矢野口", "稲城長沼", "南多摩"];
+// 全駅名を表示する
+// for文
+// for (let i = 0; i < stationArray1.length; i++) {
+//   console.log(stationArray1[i]);
+// }
+
+// mapは配列に対して使える関数、mapの中にアロー関数を書く
+// アロー前の()内は配列の要素の名前、アロー後はreturnしたいものを作成する処理を書く
+//
+// const stationArray2 = ["稲城", "若葉台", "京王永山", "京王多摩センター"];
+// 配列の各要素に対し順番に処理を行う
+// stationArray2.map((name) => console.log(name));
+// 配列の各要素に対し順番に処理を行った上で新たな配列を作る
+// const stationArray3 = stationArray2.map((name) => name + "加工済！");
+// console.log(stationArray3);
+// 新たな配列を作るので、元の配列は変わっていない
+// console.log(stationArray2);
+
+// filterは条件に一致したものに対してだけ処理を行うもの(新しい配列を作る)
+// アロー後のブラケット内に値を返却する条件を書く
+// const numArray1 = [1, 2, 3, 4, 5];
+// const numArray2 = numArray1.filter((num) => {
+//   return num % 2 === 0;
+// });
+// console.log(numArray2);
+// console.log(numArray1);
+
+// const stationArray2 = ["稲城", "若葉台", "京王永山", "京王多摩センター"];
+// 何番目、を処理の中で使いたいときは、第二引数に添字を書く
+// stationArray2.map((name, i) =>
+//   console.log(`${i + 1}番目の駅は${name}駅です。`)
+// );
+
+// 最寄り駅には追加で「最寄り駅です。」と表示する
+const stationArray2 = ["稲城", "若葉台", "京王永山", "京王多摩センター"];
+const stationArray3 = stationArray2.map((name) => {
+  if (name === "稲城") {
+    return `${name}駅は、最寄り駅です。`;
+  } else {
+    return `次は、${name}駅です。`;
+  }
+});
+console.log(stationArray3);
+
+// reactはmapもよく使う！！
