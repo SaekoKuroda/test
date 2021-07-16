@@ -118,16 +118,90 @@
 // console.log(message3);
 
 // 配列も同様
-const myProfile = ["さえこ", 46];
+// const myProfile = ["さえこ", 46];
 // const message4 = `私の名前は${myProfile[0]}です。年齢は${myProfile[1]}歳です。`
 // console.log(message4)
 
 // 配列は[]で受け取る
-const [name, age] = myProfile;
-const message5 = `私の名前は${name}です！年齢は${age}歳です。`;
-console.log(message5);
+// const [name, age] = myProfile;
+// const message5 = `私の名前は${name}です！年齢は${age}歳です。`;
+// console.log(message5);
 
 // 配列は名前が決まっていなくて順番で受け取る。順番が大事
-const [youso1, youso2] = myProfile;
-const message6 = `私の名前は${youso1}です？年齢は${youso2}歳です。`;
-console.log(message6);
+// const [youso1, youso2] = myProfile;
+// const message6 = `私の名前は${youso1}です？年齢は${youso2}歳です。`;
+// console.log(message6);
+
+/**
+ * デフォルト値
+ */
+// sayHelloは、nameという引数を渡してあげるとコンソールに挨拶を返す関数
+// const sayHello = (name) => console.log(`${name}さん、こんにちは！`);
+// sayHello("さえこ");
+
+// javascriptの場合、変数に何も設定されていない状態はundefinedとなる
+// sayHello();
+
+// 引数に何も設定されずに関数が実行された場合の初期値指定ができる。
+// const sayHello = (name = "デフォルト") =>
+//   console.log(`${name}さん、こんにちは！`);
+// sayHello();
+
+/**
+ * スプレッド構文　...
+ */
+// 配列の展開
+// const array1 = [5, 2, 3, 4];
+// 配列の中身を一度に展開
+// console.log(array1);
+// 配列の中身を１つ１つ順番に展開
+// 配列に対して...がついていたら、順番に処理する！と覚える
+// console.log(...array1);
+
+// 配列の中身を１つ１つ順番に展開→もう少しわかりやすく、、、
+// const sumFunction = (num1, num2) => console.log(`合計は${num1 + num2}です。`);
+//sumFunction(array1[0], array1[1]);
+// sumFunction(...array1);
+
+// 展開の反対、要素をまとめる
+// const array2 = [ 10, 15, 20, 25, 30 ]
+// const [ num1 , num2, ...array3 ] = array2
+// console.log(num1)
+// console.log(num2)
+// console.log(array3)
+
+// 配列のコピー、結合にも使える(reactでもよく使う)
+// const array4 = [10, 20];
+// const array5 = [30, 40];
+
+// 以下２つは同じ結果に見えるが、同じではない。
+// array6は別参照だが、array7は参照が引き継がれているため、
+// array7の中身がかわると、array5の中身もかわってしまう
+// const array6 = [...array4];
+// const array7 = array5;
+// console.log(array6);
+// console.log(array7);
+
+// 以下は配列をさらに配列でくるんでいる
+// const array8 = [array4];
+// console.log(array8);
+
+// 配列を結合する
+// array10は、２つの配列を１つの配列でくるんだ形になってしまう
+// const array9 = [...array4, ...array5];
+// const array10 = [array4, array5];
+// console.log(array9);
+// console.log(array10);
+
+// 参照が引き継がれる検証
+// const array11 = array4;
+// array11[0] = 100;
+// console.log(array11);
+// console.log(array4);
+
+// 参照が引き継がれない検証
+// １つずつ順番に処理して、元のarray4とは別の新しい配列を作っている
+// const array12 = [...array4];
+// array12[0] = 100;
+// console.log(array12);
+// console.log(array4);
