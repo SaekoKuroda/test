@@ -244,14 +244,62 @@
 // );
 
 // 最寄り駅には追加で「最寄り駅です。」と表示する
-const stationArray2 = ["稲城", "若葉台", "京王永山", "京王多摩センター"];
-const stationArray3 = stationArray2.map((name) => {
-  if (name === "稲城") {
-    return `${name}駅は、最寄り駅です。`;
-  } else {
-    return `次は、${name}駅です。`;
-  }
-});
-console.log(stationArray3);
+// const stationArray2 = ["稲城", "若葉台", "京王永山", "京王多摩センター"];
+// const stationArray3 = stationArray2.map((name) => {
+//   if (name === "稲城") {
+//     return `${name}駅は、最寄り駅です。`;
+//   } else {
+//     return `次は、${name}駅です。`;
+//   }
+// });
+// console.log(stationArray3);
 
 // reactはmapもよく使う！！
+
+/**
+ * 三項演算子
+ * if else を１行で記載できる。reactでもよく使うが使いすぎると可読性下がる
+ */
+// ある条件 ? 条件がtrueの時 : 条件がfalseの時
+// const val1 = 10 > 100 ? true : false;
+// console.log(val1);
+
+// const num = "1300";
+// toLocaleStringは数値処理の関数で、カンマ区切りにしてくれるもの
+// console.log(num.toLocaleString());
+// numが数値だったらカンマ区切りにする
+// javascriptには、その変数の型が何かを返してくれるtypeOfという機能がある
+// const formattedNum =
+//   typeof num === "number" ? num.toLocaleString() : "数値を入力してください。";
+// console.log(formattedNum);
+
+// 関数の戻り値のチェック
+// const checkSum = (num1, num2) => {
+//   return num1 + num2 < 20 ? true : false;
+// };
+// console.log(checkSum(1, 5));
+
+/**
+ * 論理演算子の本当の意味を知ろう &&(アンパサント) \\(パイプライン)
+ */
+// const flag1 = true;
+// const flag2 = true;
+
+// if (flag1 || flag2) {
+//   console.log("flag1またはflag2がtrueです。");
+// }
+// if (flag1 && flag2) {
+//   console.log("flag1もflag2もtrueです。");
+// }
+
+// じつは&&＝「かつ」、||＝「または」ではない
+// ||は、左側がtrueなら左側を、falseなら右側を返すもの。
+// javascriptは、nullはfalse判定となるため、右側の文字列が返される
+// const num = null;
+// const fee = num || "金額未設定です。";
+// console.log(fee);
+
+// &&は、左側がtrueなら右側を、falseなら左側を返すもの。
+const num2 = 100;
+const fee = num2 && "何か設定されました。";
+console.log(fee);
